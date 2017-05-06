@@ -49,7 +49,7 @@ endif	# WANT_WIN_QT
 #	  NB: the group will be created locally; if your computer is centrally
 #	   administered this may not be what you (or your admin) want.
 #	   Consider a non-shared install (WANT_SHARE_INSTALL=0) instead.
-#	- 'make install' must be run as "sudo make install"    
+#	- 'make install' must be run as "sudo make install"
 WANT_SHARE_INSTALL=1
 GAMEUID  = $(USER)
 GAMEGRP  = games
@@ -137,7 +137,7 @@ ifdef WANT_SHARE_INSTALL
 # if $GAMEUID is root, we install into roughly proper Mac locations, otherwise
 # we install into ~/nethackdir
 ifeq ($(GAMEUID),root)
-PREFIX:=/usr/games/lib
+PREFIX:=/usr/local/games/lib
 SHELLDIR=/usr/local/bin
 HACKDIR=$(PREFIX)/nethackdir
 CHOWN=chown
@@ -363,7 +363,7 @@ GNOMEINC=-I/usr/lib/glib/include -I/usr/lib/gnome-libs/include -I../win/gnome
 # CFLAGS = -g -I../include
 
 #CFLAGS = -O -I../include
-#LFLAGS = 
+#LFLAGS =
 
 # The Qt and Be window systems are written in C++, while the rest of
 # NetHack is standard C.  If using Qt, uncomment the LINK line here to get
@@ -468,7 +468,7 @@ WINGNOMELIB = -lgnomeui -lgnome -lart_lgpl -lgtk -lgdk -lpopt
 # libraries for Gem port
 WINGEMLIB = -le_gem -lgem
 #
-# libraries for BeOS 
+# libraries for BeOS
 WINBELIB = -lbe
 
 #WINLIB = $(WINTTYLIB)

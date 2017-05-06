@@ -45,7 +45,7 @@ endif	# WANT_WIN_QT
 #	  NB: the group will be created locally; if your computer is centrally
 #	   administered this may not be what you (or your admin) want.
 #	   Consider a non-shared install (WANT_SHARE_INSTALL=0) instead.
-#	- 'make install' must be run as "sudo make install"    
+#	- 'make install' must be run as "sudo make install"
 #WANT_SHARE_INSTALL=1
 GAMEUID  = $(USER)
 GAMEGRP  = games
@@ -201,8 +201,8 @@ PKGR=$(DEVUTIL)/PackageMaker.app/Contents/MacOS/PackageMaker
 SVS=$(shell $(NHSROOT)/util/makedefs --svs)
 SVSDOT=$(shell $(NHSROOT)/util/makedefs --svs .)
 
-PKGROOT_UG	= PKGROOT/usr/games
-PKGROOT_UGLN	= PKGROOT/usr/games/lib/nethackdir
+PKGROOT_UG	= PKGROOT/usr/local/games
+PKGROOT_UGLN	= PKGROOT/usr/local/games/lib/nethackdir
 build_tty_pkg:
 ifneq (,$(WANT_WIN_X11)$(WANT_WIN_QT))
 	-echo build_tty_pkg only works for a tty-only build

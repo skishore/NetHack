@@ -49,7 +49,9 @@ endif	# WANT_WIN_QT
 #	  NB: the group will be created locally; if your computer is centrally
 #	   administered this may not be what you (or your admin) want.
 #	   Consider a non-shared install (WANT_SHARE_INSTALL=0) instead.
-#	- 'make install' must be run as "sudo make install"    
+#	- 'make install' must be run as 'sudo make install'
+#	- After running 'sudo make install', run:
+#	  sudo chown -R <username> /usr/local/games/lib/nethackdir
 WANT_SHARE_INSTALL=1
 GAMEUID  = $(USER)
 GAMEGRP  = games
@@ -137,7 +139,7 @@ ifdef WANT_SHARE_INSTALL
 # if $GAMEUID is root, we install into roughly proper Mac locations, otherwise
 # we install into ~/nethackdir
 ifeq ($(GAMEUID),root)
-PREFIX:=/usr/games/lib
+PREFIX:=/usr/local/games/lib
 SHELLDIR=/usr/local/bin
 HACKDIR=$(PREFIX)/nethackdir
 CHOWN=chown
@@ -253,7 +255,7 @@ DIRPERM  = 0755
 #SHELLDIR = $(PREFIX)/games
 
 # per discussion in Install.X11 and Install.Qt
-#VARDATND = 
+#VARDATND =
 # VARDATND = x11tiles NetHack.ad pet_mark.xbm pilemark.xpm
 # VARDATND = x11tiles NetHack.ad pet_mark.xbm pilemark.xpm rip.xpm
 # for Atari/Gem
@@ -414,7 +416,7 @@ dofiles:
 	cp util/recover $(INSTDIR)
 	-if test -n '$(SHELLDIR)'; then rm -f $(SHELLDIR)/$(GAME); fi
 	if test -n '$(SHELLDIR)'; then \
-		sed -e 's;/usr/games/lib/nethackdir;$(HACKDIR);' \
+		sed -e 's;/usr/local/games/lib/nethackdir;$(HACKDIR);' \
 		-e 's;HACKDIR/nethack;HACKDIR/$(GAME);' \
 		< sys/unix/nethack.sh \
 		> $(SHELLDIR)/$(GAME) ; fi

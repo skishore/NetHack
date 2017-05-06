@@ -191,6 +191,7 @@
 #define SYSCF                /* use a global configuration */
 #define SYSCF_FILE "sysconf" /* global configuration is in a file */
 #endif
+#undef SYSCF
 
 #ifndef GDBPATH
 #define GDBPATH "/usr/bin/gdb"
@@ -317,7 +318,7 @@
  * otherwise it will be the current directory.
  */
 #ifndef HACKDIR
-#define HACKDIR "/usr/games/lib/nethackdir"
+#define HACKDIR "/usr/local/games/lib/nethackdir"
 #endif
 
 /*
